@@ -1,0 +1,13 @@
+material,finished_mass_kg,partial_characterized_kg_co2e,status
+Stainless steel,0.186,,not calculated
+Brass,0.02025,,not calculated
+Copper,0.015,,not calculated
+Polypropylene (PP),0.35025,1.1260728261701387,partial
+Polyvinyl chloride (PVC),0.0435,0.11850679631084599,partial
+"Nylon, grade unspecified",0.0495,,not calculated
+Polyoxymethylene (POM),0.00975,,not calculated
+Polycarbonate (PC),0.00675,,not calculated
+Acrylonitrile-butadiene-styrene (ABS),0.03,0.08077599223835305,partial
+Silicone,0.012,,not calculated
+LDPE packaging foil,0.0063,0.015716594505627714,partial
+Cardboard packaging,0.1315,0.27058793952504634,partial

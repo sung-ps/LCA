@@ -1,0 +1,50 @@
+{
+  "bom_rows": {
+    "status": "pass",
+    "observed": 12
+  },
+  "kettle_mass_g": {
+    "status": "pass",
+    "observed": 723.0
+  },
+  "packaging_mass_g": {
+    "status": "pass",
+    "observed": 137.8
+  },
+  "contribution_sum": {
+    "status": "pass",
+    "observed": 1.6116601487500117
+  },
+  "matrix_balance": {
+    "status": "pass",
+    "worst_residual": 1.476683358926515e-16
+  },
+  "provider_closure": {
+    "status": "fail",
+    "gap_instances": 2863,
+    "distinct_gaps": 684
+  },
+  "characterization_coverage": {
+    "status": "fail",
+    "uncharacterized_exchange_instances": 1350837
+  },
+  "full_foreground_coverage": {
+    "status": "fail",
+    "calculated_bom_rows": 5,
+    "missing_bom_rows": [
+      "Stainless steel",
+      "Brass",
+      "Copper",
+      "Nylon, grade unspecified",
+      "Polyoxymethylene (POM)",
+      "Polycarbonate (PC)",
+      "Silicone"
+    ],
+    "assembly_electricity": "unknown",
+    "inbound_freight": "unknown"
+  },
+  "double_counting": {
+    "status": "pass for explicit PP model",
+    "evidence": "PP resin is input to injection molding process and not added as a second foreground process"
+  }
+}

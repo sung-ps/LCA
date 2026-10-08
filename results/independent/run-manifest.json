@@ -1,0 +1,182 @@
+{
+  "schema": "lca-classroom-run-v1",
+  "student_alias": "sung-ps",
+  "run_label": "independent",
+  "run_date_utc": "2026-10-08T06:35:29.855005+00:00",
+  "codex_model_displayed": "GPT-6 (Codex)",
+  "codex_settings_known": {
+    "reasoning_effort": "unknown",
+    "service_tier": "unknown"
+  },
+  "declared_unit": "One manufactured and packaged BC1 1 L plastic electric kettle at the factory gate",
+  "included": [
+    "material supply",
+    "component manufacture",
+    "assembly",
+    "packaging"
+  ],
+  "excluded": [
+    "customer delivery",
+    "use",
+    "end of life"
+  ],
+  "manufacturing_geography": "US-modelled proxy; actual factory unknown",
+  "characterization_method": {
+    "name": "IPCC AR6-100",
+    "version": "01.01.004",
+    "time_horizon_years": 100,
+    "source_url": "https://github.com/FLCAC-admin/commons_merged/releases/tag/v0.1.0-alpha",
+    "category_id": "a6206006-65bc-395c-8dc9-f12262f45a04"
+  },
+  "database_releases": [
+    {
+      "name": "Commons Merged",
+      "release": "v0.1.0-alpha",
+      "sha256": "02f9986d1e2d9007395b48e710cc94577a7f87e46cdc225c59f7b2659b6eb29a",
+      "embedded_uslci": "v1.2026-06.1",
+      "electricity": "US Electricity Baseline included"
+    },
+    {
+      "name": "TianGong historical data",
+      "release": "repository v0.2.0",
+      "used_in_calculation": false,
+      "commit": "c50cab7961e0b0ca11c26a600bd4c90fea6c6c32"
+    }
+  ],
+  "assumptions": {
+    "yield_and_losses": "PP molding dataset includes 1.034 kg virgin PP/kg molded output. Other losses unknown; no invented yield used.",
+    "manufacturing_energy": "PP molding dataset includes 6.444 MJ electricity/kg molded output; assembly electricity unknown.",
+    "allocation": "Source processes report NO_ALLOCATION; non-reference coproducts flagged unresolved.",
+    "recycling": "Scrap generation/treatment and credits unknown; no separate credit included.",
+    "other": "Five public US-modelled proxies; actual factory location unknown; finish-film and carton conversion unknown."
+  },
+  "mapping_table": "data/processed/mapping-decisions.csv",
+  "prompts_record": "docs/prompts_and_runs.md",
+  "reproduction_command": "PYTHONPATH=src python -m lca_tool.cli --archive data/cache/Commons_Merged_v0.1.0-alpha.zip && PYTHONPATH=src python scripts/finalize_run.py",
+  "results": {
+    "status": "partial characterized linked-process inventory; not full GWP100",
+    "ghg_kg_co2e_per_packaged_kettle": null,
+    "partial_characterized_kg_co2e": 1.6116601487500117,
+    "contributions": [
+      {
+        "input": "Polypropylene (PP)",
+        "partial_kg_co2e": 1.1260728261701387
+      },
+      {
+        "input": "Polyvinyl chloride (PVC)",
+        "partial_kg_co2e": 0.11850679631084599
+      },
+      {
+        "input": "Acrylonitrile-butadiene-styrene (ABS)",
+        "partial_kg_co2e": 0.08077599223835305
+      },
+      {
+        "input": "LDPE packaging foil",
+        "partial_kg_co2e": 0.015716594505627714
+      },
+      {
+        "input": "Cardboard packaging",
+        "partial_kg_co2e": 0.27058793952504634
+      }
+    ],
+    "missing_inputs": [
+      "Stainless steel",
+      "Brass",
+      "Copper",
+      "Nylon, grade unspecified",
+      "Polyoxymethylene (POM)",
+      "Polycarbonate (PC)",
+      "Silicone",
+      "assembly electricity",
+      "inbound freight",
+      "non-PP conversion",
+      "scrap treatment"
+    ],
+    "unresolved_providers": {
+      "instances": 2863,
+      "distinct": 684,
+      "detail": "result.json process_models[*].provider_gaps"
+    },
+    "uncharacterized_flows": {
+      "exchange_instances": 1350837,
+      "detail": "result.json process_models[*].uncharacterized_flow_summary"
+    }
+  },
+  "uncertainty": {
+    "performed": false,
+    "distributions": [],
+    "correlations": "not applicable",
+    "seed": null,
+    "draws": null,
+    "p05_kg_co2e": null,
+    "p95_kg_co2e": null,
+    "reason": "No sourced parameter ranges; deterministic proxy sensitivity only",
+    "proxy_sensitivity": {
+      "choice": "PP molded part replaced with virgin resin at equal finished mass",
+      "predicted_direction": "decrease",
+      "base_pp_partial_kg_co2e": 1.1260728261701387,
+      "resin_only_pp_partial_kg_co2e": 0.7514943388664991,
+      "base_partial_sum_kg_co2e": 1.6116601487500117,
+      "resin_only_partial_sum_kg_co2e": 1.2370816614463722,
+      "limitation": "resin-only omits molding and both models have provider/CF gaps; neither is full GWP100"
+    }
+  },
+  "checks": {
+    "bom_rows": {
+      "status": "pass",
+      "observed": 12
+    },
+    "kettle_mass_g": {
+      "status": "pass",
+      "observed": 723.0
+    },
+    "packaging_mass_g": {
+      "status": "pass",
+      "observed": 137.8
+    },
+    "contribution_sum": {
+      "status": "pass",
+      "observed": 1.6116601487500117
+    },
+    "matrix_balance": {
+      "status": "pass",
+      "worst_residual": 1.476683358926515e-16
+    },
+    "provider_closure": {
+      "status": "fail",
+      "gap_instances": 2863,
+      "distinct_gaps": 684
+    },
+    "characterization_coverage": {
+      "status": "fail",
+      "uncharacterized_exchange_instances": 1350837
+    },
+    "full_foreground_coverage": {
+      "status": "fail",
+      "calculated_bom_rows": 5,
+      "missing_bom_rows": [
+        "Stainless steel",
+        "Brass",
+        "Copper",
+        "Nylon, grade unspecified",
+        "Polyoxymethylene (POM)",
+        "Polycarbonate (PC)",
+        "Silicone"
+      ],
+      "assembly_electricity": "unknown",
+      "inbound_freight": "unknown"
+    },
+    "double_counting": {
+      "status": "pass for explicit PP model",
+      "evidence": "PP resin is input to injection molding process and not added as a second foreground process"
+    }
+  },
+  "revision": {
+    "prior_commit_sha": null,
+    "one_choice_changed": "not applicable: classroom comparison unavailable",
+    "predicted_effect": "not applicable",
+    "observed_effect": "not applicable"
+  },
+  "run_id": "bc1-independent-2026-10-08-01",
+  "reference_year": "2026 modelling year; process years vary/unknown"
+}
