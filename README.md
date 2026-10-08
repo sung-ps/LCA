@@ -1,5 +1,7 @@
 # BC1 전기주전자 공장 출하 LCA 도구
 
+**[HTML 보고서 보기](results/independent/report.html)** · 브라우저에서 `results/independent/report.html` 파일을 열면 됩니다. 저장된 결과에서 다시 만들려면 `.venv/bin/python scripts/build_html_report.py`를 실행하세요.
+
 ## 1. 연구 식별 정보와 목적
 
 공개 별칭 `sung-ps`; 저장소 `https://github.com/sung-ps/LCA`; 독립 실행 ID `bc1-independent-2026-10-08-01` (2026-10-08 UTC). 대표 1 L 플라스틱 전기주전자의 공장 출하 단계 GWP100을 재현 가능하게 계산하는 것이 목적이다. 수업의 다른 독립 결과와 비교할 수 있도록 입력과 누락을 보존했다. 최종 커밋 SHA는 커밋 뒤 확인하며 README에 미래 값을 넣지 않는다. 독립 버전 태그는 `independent-run`이다.
@@ -53,6 +55,7 @@ sha256sum data/cache/Commons_Merged_v0.1.0-alpha.zip
 .venv/bin/python -m unittest discover -s tests -v
 .venv/bin/kettle-lca --archive data/cache/Commons_Merged_v0.1.0-alpha.zip
 .venv/bin/python scripts/finalize_run.py
+.venv/bin/python scripts/build_html_report.py
 ```
 
 해시는 위 값과 일치해야 하며 계산기도 불일치를 거부한다. 입력은 `data/source/classroom/`, 처리 자료는 `data/processed/`, 코드·테스트는 `src/`, `tests/`, 결과는 `results/independent/`, 판단과 프롬프트는 `docs/`에 있다. [SVG 그림](results/independent/partial_contributions.svg)은 브라우저로 연다. 수업 양식과 계산은 계정 없이 재현된다. TianGong 최신 플랫폼 재검색에는 사용자의 공식 브라우저 로그인이 필요하며 비밀번호를 채팅에 보내지 않는다. LCA Commons API를 새로 쓰려면 개인 data.gov 키를 환경 설정에서만 제공해야 한다. 난수 시드는 not applicable이다.
